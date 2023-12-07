@@ -17,7 +17,7 @@ class Products extends Model implements Authenticatable
     
     protected $fillable = [
         'Sku_Code', 
-        // Other fillable fields...
+        'Image',// Other fillable fields...
     ];
 
     public $timestamps = false;

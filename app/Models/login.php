@@ -12,6 +12,7 @@ class login extends Model implements Authenticatable
 {
     use HasFactory;
     use AuthenticatableTrait;
+    
     protected $table="login";
     public $timestamps=false;
 
