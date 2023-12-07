@@ -12,7 +12,7 @@
                 <!--div starts here--->			    					 
                 <div class="add">
                     <div class="addpage">Upload Csv</div> 
-                    <form id="generateForm" action="{{route('generate.pdf')}}" method="post" enctype="multipart/form-data">
+                    <form method="post" id="uploadForm" action="" enctype="multipart/form-data">    
                         @csrf
                         <!-- table starts -->
                         <table class="table3" border="1">
@@ -25,13 +25,25 @@
                         </table>
                         <!-- table3 ends -->
                     
-                        {{-- <input type="submit" value="open-pdf" class="save" name="pdf" /> --}}
-                        <input type="submit" value="image" class="save" name="image"/>
+                        <input type="submit" value="Pdf" class="save" name="pdf" onclick="setAction('pdf')"/>
+                        <input type="submit" value="image" class="save" name="image" onclick="setAction('image')"/>
                     </form>
+                   
                 </div>
                 <!-- div ends here -->
         </div>
         <!--right div ends--->
     </div>
     <!----middlecontainer ends -->
+    <script>
+        function setAction(actionType) {
+            var form = document.getElementById('uploadForm');
+    
+            if (actionType === 'pdf') {
+                form.action = "{{ route('pdf') }}";
+            } else if (actionType === 'image') {
+                form.action = "{{ route('generate.pdf') }}";
+            }
+        }
+    </script>
 @endsection
